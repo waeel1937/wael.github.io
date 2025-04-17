@@ -465,6 +465,11 @@
     <span>⬇ <span id="speed-download">--</span> Mbps</span>
     <span>⬆ <span id="speed-upload">n/a</span></span>
     <span>🌐 <span id="speed-type">...</span></span>
+
+    <span>🖥️ <span id="device-type">Detecting...</span></span>
+    <span>🔋 <span id="battery">--</span></span>
+
+    
   </div>
 </div>
     
@@ -612,7 +617,20 @@ window.addEventListener("load", () => {
 
 
 
+  // Detect Device
+  const ua = navigator.userAgent;
+  const deviceType = /mobile|android|iphone|ipad/i.test(ua) ? "Mobile" : "Desktop";
+  document.getElementById("device-type").textContent = deviceType;
 
+  // Battery
+  if (navigator.getBattery) {
+    navigator.getBattery().then(battery => {
+      const level = Math.round(battery.level * 100);
+      document.getElementById("battery").textContent = level + "%";
+    });
+  } else {
+    document.getElementById("battery").textContent = "n/a";
+  }
 
 
   
