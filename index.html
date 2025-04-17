@@ -340,31 +340,16 @@
 </section>
 
   <!-- Visitor Counter Section -->
-  <section style="text-align: center; padding: 20px;">
-    <p>👁‍🗨 Visitors today: <span id="visitor-count">Loading...</span></p>
-  </section>
+<section style="text-align: center; padding: 20px;">
+  <p>👁‍🗨 Visitors:</p>
+  <img src="https://visitor-badge.laobi.icu/badge?page_id=waeel1937.wael.github.io" alt="Visitor badge">
+</section>
 
   <footer>
     © 2025 Wael Kheshfeh – All rights reserved.
   </footer>
 
-  <!-- ✅ Visible Counter: counterapi.com -->
-  <script>
-    fetch('https://counterapi.com/api/page/wael-main') // <- deine ID hier!
-      .then(res => res.json())
-      .then(data => {
-        document.getElementById("visitor-count").innerText = data.count;
-      })
-      .catch(() => {
-        document.getElementById("visitor-count").innerText = "Unavailable";
-      });
-  </script>
 
-  <!-- ✅ Hidden Analytics: counter.dev -->
-  <script src="https://cdn.counter.dev/script.js"
-          data-id="a126b597-336d-4a52-9abe-a99f9a990770"
-          data-utcoffset="2">
-  </script>
 
   
 </body>
