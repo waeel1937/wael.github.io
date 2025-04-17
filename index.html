@@ -407,51 +407,96 @@
   </section>
 
   
-<section style="display: flex; justify-content: center; gap: 40px; align-items: center; flex-wrap: wrap; padding: 40px; font-size: 24px;">
+<section style="padding: 40px; background-color: #f0f4f8;">
+  <div style="display: flex; justify-content: center; gap: 60px; align-items: center; flex-wrap: wrap; font-size: 18px;">
 
-  <!-- Besucherzähler -->
-  <div style="display: flex; align-items: center; gap: 10px;">
-    <span>👁‍🗨</span>
-    <img src="https://visitor-badge.laobi.icu/badge?page_id=waeel1937.wael.github.io" alt="Visitor badge" style="height: 28px;">
+    <!-- Besucherzähler -->
+    <div class="info-box">
+      <div class="icon">👁‍🗨</div>
+      <div>
+        <p style="margin: 0;">Visitors</p>
+        <img src="https://visitor-badge.laobi.icu/badge?page_id=waeel1937.wael.github.io" alt="Visitor badge" style="margin-top: 5px;">
+      </div>
+    </div>
+
+    <!-- Letzte Aktualisierung -->
+    <div class="info-box">
+      <div class="icon">🕒</div>
+      <div>
+        <p style="margin: 0;">Last Updated</p>
+        <p id="lastUpdated" style="margin: 5px 0 0;">Loading...</p>
+      </div>
+    </div>
+
+    <!-- Dark Mode Toggle -->
+    <div class="info-box">
+      <div class="icon">🌓</div>
+      <div>
+        <p style="margin: 0;">Theme</p>
+        <button onclick="document.body.classList.toggle('dark')" class="toggle-btn">Toggle</button>
+      </div>
+    </div>
+
   </div>
-
-  <!-- Letzte Aktualisierung -->
-  <div style="display: flex; align-items: center; gap: 10px;">
-    <span>🕒</span>
-    <span id="lastUpdated">Loading...</span>
-  </div>
-
-  <!-- Dark Mode Toggle Button -->
-  <div style="display: flex; align-items: center; gap: 10px;">
-    <span>🌓</span>
-    <button onclick="document.body.classList.toggle('dark')" style="padding: 8px 16px; font-size: 16px; border-radius: 8px; background-color: #003366; color: white; border: none; cursor: pointer;">
-      Toggle
-    </button>
-  </div>
-
 </section>
 
-<script>
-  document.getElementById("lastUpdated").textContent = document.lastModified;
-</script>
-
-<!-- Dark Mode Style -->
+<!-- Dark Mode Styles + Allgemeines -->
 <style>
+  .info-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 20px;
+    border-radius: 12px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .info-box:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+  }
+
+  .icon {
+    font-size: 32px;
+  }
+
+  .toggle-btn {
+    background: #0055aa;
+    border: none;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  .toggle-btn:hover {
+    background: #007bff;
+  }
+
   body.dark {
     background-color: #111;
     color: #eee;
   }
-  body.dark section {
-    background-color: #222;
+
+  body.dark .info-box {
+    background-color: #1c1c1c;
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(255,255,255,0.1);
+  }
+
+  body.dark .toggle-btn {
+    background: #444;
   }
 </style>
 
-
-
-<!-- AOS Styles & Init -->
-<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>AOS.init();</script>
+<!-- Script für letzte Änderung -->
+<script>
+  document.getElementById("lastUpdated").textContent = document.lastModified;
+</script>
 
 
 
