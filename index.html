@@ -453,6 +453,15 @@
         <button onclick="document.body.classList.toggle('dark')" class="toggle-btn">Toggle</button>
       </div>
     </div>
+ <!-- Speed -->
+<div class="info-box">
+  <div class="icon">📶</div>
+  <div>
+    <p style="margin: 0;">Internet Speed</p>
+    <p id="speed-info" style="margin: 5px 0 0;">Measuring...</p>
+  </div>
+</div>
+    
 
   </div>
 </section>
@@ -545,6 +554,33 @@
   document.getElementById("lastUpdated").textContent = `${formattedDate}, ${formattedTime} Uhr`;
 
 
+
+
+
+   async function measureSpeed() {
+    const image = new Image();
+    const imageSizeInBytes = 500000; // 500 KB
+    const start = new Date().getTime();
+
+    image.onload = function () {
+      const end = new Date().getTime();
+      const duration = (end - start) / 1000;
+      const bitsLoaded = imageSizeInBytes * 8;
+      const speedBps = bitsLoaded / duration;
+      const speedMbps = (speedBps / (1024 * 1024)).toFixed(1);
+
+      document.getElementById("speed-info").textContent = `⬇ ${speedMbps} Mbps`;
+    };
+
+    image.onerror = function () {
+      document.getElementById("speed-info").textContent = `Speed test failed`;
+    };
+
+    // Start Test
+    image.src = "https://upload.wikimedia.org/wikipedia/commons/3/3f/Fronalpstock_big.jpg?rand=" + Math.random();
+  }
+
+  window.addEventListener("load", measureSpeed);
   
 </script>
   
