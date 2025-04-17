@@ -105,111 +105,132 @@
 
 <section>
   <h2>Skills & Technologies</h2>
-  <div style="display: flex; flex-wrap: wrap; gap: 25px;">
+  <div style="display: flex; flex-wrap: wrap; gap: 20px;">
     
-    <!-- AAS (Beispiel-Link) -->
-    <a href="https://www.eclipse.org/basyx/" target="_blank">
-      <img src="65010131.png" alt="AAS Logo" style="width: 60px; height: 60px;" />
+    <style>
+      .tech-card {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 80px;
+        height: 80px;
+        padding: 10px;
+        border: 2px solid #ddd;
+        border-radius: 12px;
+        box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        background-color: white;
+        cursor: pointer;
+      }
+      .tech-card:hover {
+        transform: scale(1.08);
+        box-shadow: 4px 4px 12px rgba(0,0,0,0.2);
+      }
+      .tech-card img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+      }
+    </style>
+
+    <!-- Python -->
+    <a href="https://www.python.org/" target="_blank" class="tech-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/f/f8/Python_logo_and_wordmark.svg" alt="Python Logo" />
     </a>
 
     <!-- Docker -->
-    <a href="https://www.docker.com/" target="_blank">
-      <img src="https://www.docker.com/wp-content/uploads/2022/03/Moby-logo.png" alt="Docker Logo" style="width: 60px; height: 60px;" />
+    <a href="https://www.docker.com/" target="_blank" class="tech-card">
+      <img src="https://www.docker.com/wp-content/uploads/2022/03/Moby-logo.png" alt="Docker Logo" />
     </a>
 
     <!-- Kubernetes -->
-    <a href="https://kubernetes.io/" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/3/39/Kubernetes_logo_without_workmark.svg" alt="Kubernetes Logo" style="width: 60px; height: 60px;" />
-    </a>
-
-    <!-- Python -->
-    <a href="https://www.python.org/" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/f/f8/Python_logo_and_wordmark.svg" alt="Python Logo" style="width: 150px; height: 60px;" />
-    </a>
-
-    <!-- PyTorch -->
-    <a href="https://pytorch.org/" target="_blank">
-      <img src="https://pytorch.org/assets/images/pytorch-logo.png" alt="PyTorch Logo" style="width: 60px; height: 60px;" />
-    </a>
-
-    <!-- JavaScript -->
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="JavaScript Logo" style="width: 60px; height: 60px;" />
-    </a>
-
-    <!-- Angular -->
-    <a href="https://angular.io/" target="_blank">
-      <img src="https://angular.io/assets/images/logos/angular/angular.svg" alt="Angular Logo" style="width: 60px; height: 60px;" />
+    <a href="https://kubernetes.io/" target="_blank" class="tech-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/39/Kubernetes_logo_without_workmark.svg" alt="Kubernetes Logo" />
     </a>
 
     <!-- FastAPI -->
-    <a href="https://fastapi.tiangolo.com/" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/1/1a/FastAPI_logo.svg" alt="FastAPI Logo" style="width: 60px; height: 60px;" />
-    </a>
-
-    <!-- OPC UA -->
-    <a href="https://opcfoundation.org/about/opc-technologies/opc-ua/" target="_blank">
-      <img src="https://getvectorlogo.com/wp-content/uploads/2019/02/opc-unified-architecture-ua-vector-logo.png" alt="OPC UA Logo" style="width: 60px; height: 60px;" />
-    </a>
-
-    <!-- MQTT -->
-    <a href="https://mqtt.org/" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Mqtt-hor.svg" alt="MQTT Logo" style="width: 60px; height: 60px;" />
-    </a>
-
-    <!-- REST API -->
-    <a href="https://restfulapi.net/" target="_blank">
-      <img src="rest-api-icon.png" alt="REST API Logo" style="width: 60px; height: 60px;" />
-    </a>
-
-    <!-- PostgreSQL -->
-    <a href="https://www.postgresql.org/" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg" alt="PostgreSQL Logo" style="width: 60px; height: 60px;" />
-    </a>
-
-    <!-- Grafana -->
-    <a href="https://grafana.com/" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a1/Grafana_logo.svg" alt="Grafana Logo" style="width: 60px; height: 60px;" />
+    <a href="https://fastapi.tiangolo.com/" target="_blank" class="tech-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/1/1a/FastAPI_logo.svg" alt="FastAPI Logo" />
     </a>
 
     <!-- Node-RED -->
-    <a href="https://nodered.org/" target="_blank">
-      <img src="https://nodered.org/about/resources/media/node-red-icon.png" alt="Node-RED Logo" style="width: 60px; height: 60px;" />
+    <a href="https://nodered.org/" target="_blank" class="tech-card">
+      <img src="https://nodered.org/about/resources/media/node-red-icon.png" alt="Node-RED Logo" />
     </a>
 
-    <!-- Industrie 4.0 -->
-    <a href="https://www.plattform-i40.de/" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/5/54/Logo_der_Plattform_Industrie_4_0.png" alt="Industrie 4.0" style="width: 200px; height: 60px;" />
+    <!-- PostgreSQL -->
+    <a href="https://www.postgresql.org/" target="_blank" class="tech-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg" alt="PostgreSQL Logo" />
+    </a>
+
+    <!-- JavaScript -->
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" class="tech-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="JavaScript Logo" />
+    </a>
+
+    <!-- PyTorch -->
+    <a href="https://pytorch.org/" target="_blank" class="tech-card">
+      <img src="https://pytorch.org/assets/images/pytorch-logo.png" alt="PyTorch Logo" />
+    </a>
+
+    <!-- OPC UA -->
+    <a href="https://opcfoundation.org/about/opc-technologies/opc-ua/" target="_blank" class="tech-card">
+      <img src="https://getvectorlogo.com/wp-content/uploads/2019/02/opc-unified-architecture-ua-vector-logo.png" alt="OPC UA Logo" />
+    </a>
+
+    <!-- MQTT -->
+    <a href="https://mqtt.org/" target="_blank" class="tech-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Mqtt-hor.svg" alt="MQTT Logo" />
+    </a>
+
+    <!-- Angular -->
+    <a href="https://angular.io/" target="_blank" class="tech-card">
+      <img src="https://angular.io/assets/images/logos/angular/angular.svg" alt="Angular Logo" />
+    </a>
+
+    <!-- REST API -->
+    <a href="https://restfulapi.net/" target="_blank" class="tech-card">
+      <img src="rest-api-icon.png" alt="REST API Logo" />
+    </a>
+
+    <!-- Grafana -->
+    <a href="https://grafana.com/" target="_blank" class="tech-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a1/Grafana_logo.svg" alt="Grafana Logo" />
     </a>
 
     <!-- MySQL -->
-    <a href="https://www.mysql.com/" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/de/d/dd/MySQL_logo.svg" alt="MySQL Logo" style="width: 60px; height: 60px;" />
+    <a href="https://www.mysql.com/" target="_blank" class="tech-card">
+      <img src="https://upload.wikimedia.org/wikipedia/de/d/dd/MySQL_logo.svg" alt="MySQL Logo" />
     </a>
 
     <!-- Power BI -->
-    <a href="https://powerbi.microsoft.com/" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg" alt="Power BI Logo" style="width: 60px; height: 60px;" />
-    </a>
-
-    <!-- Java -->
-    <a href="https://www.java.com/" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/de/e/e1/Java-Logo.svg" alt="Java Logo" style="width: 30px; height: 60px;" />
-    </a>
-
-    <!-- VR -->
-    <a href="https://en.wikipedia.org/wiki/Virtual_reality" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/7/77/VR_Logo_Virtual_Reality_Logo.svg" alt="VR Logo" style="width: 60px; height: 60px;" />
-    </a>
-
-    <!-- C# -->
-    <a href="https://learn.microsoft.com/en-us/dotnet/csharp/" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/b/bd/Logo_C_sharp.svg" alt="C# Logo" style="width: 60px; height: 60px;" />
+    <a href="https://powerbi.microsoft.com/" target="_blank" class="tech-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg" alt="Power BI Logo" />
     </a>
 
     <!-- C++ -->
-    <a href="https://isocpp.org/" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg" alt="C++ Logo" style="width: 60px; height: 60px;" />
+    <a href="https://isocpp.org/" target="_blank" class="tech-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg" alt="C++ Logo" />
+    </a>
+
+    <!-- C# -->
+    <a href="https://learn.microsoft.com/en-us/dotnet/csharp/" target="_blank" class="tech-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/b/bd/Logo_C_sharp.svg" alt="C# Logo" />
+    </a>
+
+    <!-- Java -->
+    <a href="https://www.java.com/" target="_blank" class="tech-card">
+      <img src="https://upload.wikimedia.org/wikipedia/de/e/e1/Java-Logo.svg" alt="Java Logo" />
+    </a>
+
+    <!-- Industrie 4.0 -->
+    <a href="https://www.plattform-i40.de/" target="_blank" class="tech-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/54/Logo_der_Plattform_Industrie_4_0.png" alt="Industrie 4.0 Logo" />
+    </a>
+
+    <!-- VR -->
+    <a href="https://en.wikipedia.org/wiki/Virtual_reality" target="_blank" class="tech-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/77/VR_Logo_Virtual_Reality_Logo.svg" alt="VR Logo" />
     </a>
 
   </div>
