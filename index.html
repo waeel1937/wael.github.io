@@ -536,23 +536,19 @@
 
 
 <script>
-  window.addEventListener("load", function () {
-    const overlay = document.getElementById("loading-overlay");
-    overlay.style.display = "none";
-  });
+window.addEventListener("load", () => {
+  document.getElementById("loading-overlay").style.display = "none";
 
-  const lastUpdated = new Date(document.lastModified);
-  const formattedDate = lastUpdated.toLocaleDateString("de-DE", {
+  const updated = new Date(document.lastModified);
+  const dateTime = updated.toLocaleString("en-US", {
     year: "numeric",
     month: "long",
-    day: "numeric"
-  });
-  const formattedTime = lastUpdated.toLocaleTimeString("de-DE", {
+    day: "numeric",
     hour: "2-digit",
     minute: "2-digit"
   });
-  document.getElementById("lastUpdated").textContent = `${formattedDate}, ${formattedTime} Uhr`;
-
+  document.getElementById("lastUpdated").textContent = dateTime;
+});
 
 
 
