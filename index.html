@@ -459,12 +459,12 @@
 
     
  <!-- Speed -->
-    <div class="info-box speed-box">
-  <img src="https://img.icons8.com/color/48/000000/speed.png" style="width: 36px;" alt="Speed">
-  <div class="speed-info">
-    <div class="speed-row">⬇ Download: <span id="speed-download">Testing...</span></div>
-    <div class="speed-row">⬆ Upload: <span id="speed-upload">N/A</span></div>
-    <div class="speed-row">🌐 Type: <span id="speed-type">Unknown</span></div>
+<div class="info-box speed-horizontal">
+  <img src="https://img.icons8.com/fluency/48/speed.png" alt="Speed Icon" style="width: 36px;">
+  <div class="speed-row-horizontal">
+    <span>⬇ <span id="speed-download">--</span> Mbps</span>
+    <span>⬆ <span id="speed-upload">n/a</span></span>
+    <span>🌐 <span id="speed-type">...</span></span>
   </div>
 </div>
     
@@ -549,6 +549,30 @@
     background: #333;
     color: #fff;
   }
+  .speed-horizontal {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    border-radius: 16px;
+    background-color: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    gap: 16px;
+    min-width: 300px;
+    flex-wrap: wrap;
+  }
+
+  .speed-row-horizontal {
+    display: flex;
+    gap: 20px;
+    font-size: 16px;
+    font-weight: 500;
+    flex-wrap: wrap;
+  }
+
+  body.dark .speed-horizontal {
+    background-color: #222;
+    color: white;
+  }
 
 
   
@@ -594,31 +618,24 @@ window.addEventListener("load", () => {
   
 
 
-    window.addEventListener("load", () => {
-    // Download speed test
+  window.addEventListener("load", () => {
     const image = new Image();
-    const size = 500000; // in Bytes
+    const size = 500000;
     const start = new Date().getTime();
 
     image.onload = function () {
       const end = new Date().getTime();
       const duration = (end - start) / 1000;
-      const bits = size * 8;
-      const mbps = (bits / duration / 1024 / 1024).toFixed(1);
-      document.getElementById("speed-download").textContent = `${mbps} Mbps`;
+      const speed = ((size * 8) / duration / 1024 / 1024).toFixed(1);
+      document.getElementById("speed-download").textContent = speed;
 
-      // Dummy Upload & Type
+      // Fake Upload + Type
       document.getElementById("speed-upload").textContent = "n/a";
       document.getElementById("speed-type").textContent = navigator.connection?.effectiveType || "unknown";
     };
 
-    image.onerror = () => {
-      document.getElementById("speed-download").textContent = "Failed";
-    };
-
     image.src = "https://upload.wikimedia.org/wikipedia/commons/3/3f/Fronalpstock_big.jpg?rand=" + Math.random();
   });
-  
 </script>
   
 
