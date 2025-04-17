@@ -39,31 +39,34 @@
     h2 {
       color: #003366;
     }
-    .creative-buttons {
+    .modern-buttons {
       display: flex;
       justify-content: center;
       gap: 20px;
       margin-top: 20px;
     }
-    .creative-buttons a {
+    .modern-buttons a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-decoration: none;
-      font-size: 18px;
+      font-size: 16px;
       font-weight: bold;
       color: #fff;
-      padding: 15px 30px;
-      border-radius: 10px;
-      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+      padding: 15px 20px;
+      border-radius: 50px;
       background: linear-gradient(135deg, #0055aa, #003366);
-      perspective: 500px;
-      transform: rotateX(15deg) rotateY(10deg);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .creative-buttons a:hover {
-      transform: rotateX(0deg) rotateY(0deg) scale(1.1);
-      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+    .modern-buttons a:hover {
+      background: linear-gradient(135deg, #007bff, #004080);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
     }
-    .creative-buttons a i {
-      margin-right: 10px;
+    .modern-buttons a i {
+      margin-right: 8px;
+      font-size: 18px;
     }
     footer {
       text-align: center;
@@ -114,12 +117,12 @@
 
   <section>
     <h2>Connect With Me</h2>
-    <div class="creative-buttons"> 
+    <div class="modern-buttons">
       <a href="mailto:mohamad.kheshfeh@h2.de" target="_blank"><i class="fas fa-envelope"></i> Email</a>
-      <a href="https://www.linkedin.com/in/wael-kheshfeh-18149b18b/" target="_blank"><i class="fab fa-linkedin"></i></a>
-      <a href="https://scholar.google.com/" target="_blank"><i class="fas fa-graduation-cap"></i></a>
-      <a href="https://orcid.org/0009-0005-9658-9589" target="_blank"><i class="fab fa-orcid"></i></a>
-      <a href="https://www.researchgate.net/profile/Mohamad-Kheshfeh" target="_blank"><i class="fab fa-researchgate"></i></a>
+      <a href="https://www.linkedin.com/in/wael-kheshfeh-18149b18b/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+      <a href="https://scholar.google.com/" target="_blank"><i class="fas fa-graduation-cap"></i> Scholar</a>
+      <a href="https://orcid.org/0009-0005-9658-9589" target="_blank"><i class="fab fa-orcid"></i> ORCID</a>
+      <a href="https://www.researchgate.net/profile/Mohamad-Kheshfeh" target="_blank"><i class="fab fa-researchgate"></i> ResearchGate</a>
     </div>
   </section>
 
