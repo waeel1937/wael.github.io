@@ -28,19 +28,6 @@
       margin-bottom: 20px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
-    .icon-buttons {
-      margin-top: 20px;
-    }
-    .icon-buttons a {
-      display: inline-block;
-      margin: 0 10px;
-      font-size: 24px;
-      color: #fff;
-      transition: color 0.3s ease;
-    }
-    .icon-buttons a:hover {
-      color: #ffcc00;
-    }
     section {
       max-width: 900px;
       margin: 40px auto;
@@ -52,42 +39,31 @@
     h2 {
       color: #003366;
     }
-    form {
+    .creative-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
       margin-top: 20px;
     }
-    .form-group {
-      margin-bottom: 15px;
-    }
-    .form-group label {
-      display: block;
+    .creative-buttons a {
+      text-decoration: none;
+      font-size: 18px;
       font-weight: bold;
-      margin-bottom: 5px;
-    }
-    .form-group input,
-    .form-group textarea {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      font-size: 14px;
-    }
-    .form-group textarea {
-      resize: vertical;
-    }
-    .btn-submit {
-      display: inline-block;
-      padding: 12px 24px;
-      background-color: #003366;
       color: #fff;
-      border: none;
-      border-radius: 8px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background-color 0.3s ease, transform 0.2s ease;
+      padding: 15px 30px;
+      border-radius: 10px;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+      background: linear-gradient(135deg, #0055aa, #003366);
+      perspective: 500px;
+      transform: rotateX(15deg) rotateY(10deg);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .btn-submit:hover {
-      background-color: #0055aa;
-      transform: translateY(-2px);
+    .creative-buttons a:hover {
+      transform: rotateX(0deg) rotateY(0deg) scale(1.1);
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+    }
+    .creative-buttons a i {
+      margin-right: 10px;
     }
     footer {
       text-align: center;
@@ -103,13 +79,6 @@
     <img src="1725696491757.jpg" alt="Wael Kheshfeh" class="profile-pic">
     <h1>Wael Kheshfeh</h1>
     <p>Researcher | IIoT & AI in Manufacturing | Asset Administration Shell Expert</p>
-    <div class="icon-buttons">
-      <a href="mailto:mohamad.kheshfeh@h2.de" target="_blank"><i class="fas fa-envelope"></i></a>
-      <a href="https://www.linkedin.com/in/wael-kheshfeh-18149b18b/" target="_blank"><i class="fab fa-linkedin"></i></a>
-      <a href="https://scholar.google.com/" target="_blank"><i class="fas fa-graduation-cap"></i></a>
-      <a href="https://orcid.org/0009-0005-9658-9589" target="_blank"><i class="fab fa-orcid"></i></a>
-      <a href="https://www.researchgate.net/profile/Mohamad-Kheshfeh" target="_blank"><i class="fab fa-researchgate"></i></a>
-    </div>
   </header>
 
   <section>
@@ -143,23 +112,15 @@
     </ul>
   </section>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <form>
-      <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" id="name" placeholder="Your Name" />
-      </div>
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" id="email" placeholder="Your Email" />
-      </div>
-      <div class="form-group">
-        <label for="message">Message</label>
-        <textarea id="message" rows="5" placeholder="Your Message"></textarea>
-      </div>
-      <button type="submit" class="btn-submit">Submit</button>
-    </form>
+  <section>
+    <h2>Connect With Me</h2>
+    <div class="creative-buttons">
+      <a href="mailto:mohamad.kheshfeh@h2.de" target="_blank"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.linkedin.com/in/wael-kheshfeh-18149b18b/" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://scholar.google.com/" target="_blank"><i class="fas fa-graduation-cap"></i></a>
+      <a href="https://orcid.org/0009-0005-9658-9589" target="_blank"><i class="fab fa-orcid"></i></a>
+      <a href="https://www.researchgate.net/profile/Mohamad-Kheshfeh" target="_blank"><i class="fab fa-researchgate"></i></a>
+    </div>
   </section>
 
   <footer>
