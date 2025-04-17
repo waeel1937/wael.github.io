@@ -534,13 +534,17 @@
     overlay.style.display = "none";
   });
 
-    const lastUpdated = new Date(document.lastModified);
-  const formattedDate = lastUpdated.toLocaleDateString("en-US", {
+  const lastUpdated = new Date(document.lastModified);
+  const formattedDate = lastUpdated.toLocaleDateString("de-DE", {
     year: "numeric",
     month: "long",
     day: "numeric"
   });
-  document.getElementById("lastUpdated").textContent = formattedDate;
+  const formattedTime = lastUpdated.toLocaleTimeString("de-DE", {
+    hour: "2-digit",
+    minute: "2-digit"
+  });
+  document.getElementById("lastUpdated").textContent = `${formattedDate}, ${formattedTime} Uhr`;
 
 
   
