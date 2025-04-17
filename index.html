@@ -459,17 +459,17 @@
 
     
  <!-- Speed -->
-<div class="info-box speed-horizontal">
-  <img src="https://img.icons8.com/fluency/48/speed.png" alt="Speed Icon" style="width: 36px;">
-  <div class="speed-row-horizontal">
-    <span>⬇ <span id="speed-download">--</span> Mbps</span>
-    <span>⬆ <span id="speed-upload">n/a</span></span>
-    <span>🌐 <span id="speed-type">...</span></span>
+<div class="speed-dashboard">
+  <div class="speed-circle">
+    <div class="speed-number"><span id="speed-download">--</span><small> Mbps</small></div>
+  </div>
 
-    <span>🖥️ <span id="device-type">Detecting...</span></span>
-    <span>🔋 <span id="battery">--</span></span>
-
-    
+  <div class="speed-details">
+    <span>⬆ <strong id="speed-upload">n/a</strong></span>
+    <span>🌐 <strong id="speed-type">--</strong></span>
+    <span>🖥️ <strong id="device-type">--</strong></span>
+    <span>🔋 <strong id="battery">--</strong></span>
+    <span>🚦 <strong id="ping">--</strong> ms</span>
   </div>
 </div>
     
@@ -578,6 +578,63 @@
     background-color: #222;
     color: white;
   }
+  .speed-dashboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+    background: #f3f6f9;
+    border-radius: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    max-width: 500px;
+    margin: auto;
+  }
+
+  .speed-circle {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: conic-gradient(#00bfff 0% 75%, #eee 75% 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.1);
+  }
+
+  .speed-number {
+    font-size: 36px;
+    font-weight: bold;
+    color: #003366;
+    text-align: center;
+  }
+
+  .speed-number small {
+    font-size: 16px;
+    color: #555;
+  }
+
+  .speed-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    font-size: 18px;
+    color: #333;
+  }
+
+  body.dark .speed-dashboard {
+    background: #222;
+    color: #eee;
+  }
+
+  body.dark .speed-circle {
+    background: conic-gradient(#66ccff 0% 75%, #444 75% 100%);
+  }
+
+  body.dark .speed-number {
+    color: white;
+  }
 
 
   
@@ -617,26 +674,8 @@ window.addEventListener("load", () => {
 
 
 
-  // Detect Device
-  const ua = navigator.userAgent;
-  const deviceType = /mobile|android|iphone|ipad/i.test(ua) ? "Mobile" : "Desktop";
-  document.getElementById("device-type").textContent = deviceType;
-
-  // Battery
-  if (navigator.getBattery) {
-    navigator.getBattery().then(battery => {
-      const level = Math.round(battery.level * 100);
-      document.getElementById("battery").textContent = level + "%";
-    });
-  } else {
-    document.getElementById("battery").textContent = "n/a";
-  }
-
-
-  
-
-
-  window.addEventListener("load", () => {
+    window.addEventListener("load", () => {
+    // Speed
     const image = new Image();
     const size = 500000;
     const start = new Date().getTime();
@@ -646,14 +685,34 @@ window.addEventListener("load", () => {
       const duration = (end - start) / 1000;
       const speed = ((size * 8) / duration / 1024 / 1024).toFixed(1);
       document.getElementById("speed-download").textContent = speed;
-
-      // Fake Upload + Type
-      document.getElementById("speed-upload").textContent = "n/a";
-      document.getElementById("speed-type").textContent = navigator.connection?.effectiveType || "unknown";
     };
-
     image.src = "https://upload.wikimedia.org/wikipedia/commons/3/3f/Fronalpstock_big.jpg?rand=" + Math.random();
+
+    // Device
+    const ua = navigator.userAgent;
+    const deviceType = /mobile|android|iphone|ipad/i.test(ua) ? "Mobile" : "Desktop";
+    document.getElementById("device-type").textContent = deviceType;
+
+    // Battery
+    if (navigator.getBattery) {
+      navigator.getBattery().then(b => {
+        document.getElementById("battery").textContent = Math.round(b.level * 100) + "%";
+      });
+    }
+
+    // Connection type
+    const type = navigator.connection?.effectiveType || "unknown";
+    document.getElementById("speed-type").textContent = type;
+
+    // Ping (simuliert)
+    const pingStart = performance.now();
+    fetch("https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_92x30dp.png", { cache: "no-store" })
+      .then(() => {
+        const ping = Math.round(performance.now() - pingStart);
+        document.getElementById("ping").textContent = ping;
+      });
   });
+
 </script>
   
 
