@@ -348,14 +348,23 @@
     </div>
   </section>
 
+  <section style="text-align: center; padding: 20px;">
+    <p>👁‍🗨 Visitors today: <span id="visitor-count">Loading...</span></p>
+  </section>
+
   <footer>
     © 2025 Wael Kheshfeh – All rights reserved.
   </footer>
 
+  <!-- Counter script -->
+  <script>
+    fetch('https://counterapi.com/api/page/wael-website')
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById("visitor-count").innerText = data.count;
+      });
+  </script>
   
-  
-  <!-- Visitor Analytics -->
-  <script src="https://cdn.counter.dev/script.js" data-id="a126b597-336d-4a52-9abe-a99f9a990770" data-utcoffset="2"></script>
 
 </body>
 </html>
