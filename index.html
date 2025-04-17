@@ -464,14 +464,38 @@
     <div class="speed-number"><span id="speed-download">--</span><small> Mbps</small></div>
   </div>
 
-  <div class="speed-details">
-    <span>⬆ <strong id="speed-upload">n/a</strong></span>
-    <span>🌐 <strong id="speed-type">--</strong></span>
-    <span>🖥️ <strong id="device-type">--</strong></span>
-    <span>🔋 <strong id="battery">--</strong></span>
-    <span>🚦 <strong id="ping">--</strong> ms</span>
+<div class="circle-dashboard">
+  <div class="circle-item">
+    <svg class="circle-ring">
+      <circle class="bg" r="40" cx="50" cy="50"/>
+      <circle class="progress" r="40" cx="50" cy="50" id="ring-download"/>
+    </svg>
+    <div class="circle-label">
+      <strong id="val-download">--</strong><span>Mbps</span><br>⬇ Download
+    </div>
+  </div>
+
+  <div class="circle-item">
+    <svg class="circle-ring">
+      <circle class="bg" r="40" cx="50" cy="50"/>
+      <circle class="progress" r="40" cx="50" cy="50" id="ring-battery"/>
+    </svg>
+    <div class="circle-label">
+      <strong id="val-battery">--</strong><span>%</span><br>🔋 Battery
+    </div>
+  </div>
+
+  <div class="circle-item">
+    <svg class="circle-ring">
+      <circle class="bg" r="40" cx="50" cy="50"/>
+      <circle class="progress" r="40" cx="50" cy="50" id="ring-ping"/>
+    </svg>
+    <div class="circle-label">
+      <strong id="val-ping">--</strong><span>ms</span><br>🚦 Ping
+    </div>
   </div>
 </div>
+
     
 
   </div>
@@ -636,6 +660,51 @@
     color: white;
   }
 
+  .circle-dashboard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 40px;
+  }
+
+  .circle-item {
+    text-align: center;
+  }
+
+  .circle-ring {
+    width: 100px;
+    height: 100px;
+    transform: rotate(-90deg);
+  }
+
+  .circle-ring circle {
+    fill: none;
+    stroke-width: 10;
+  }
+
+  .circle-ring .bg {
+    stroke: #eee;
+  }
+
+  .circle-ring .progress {
+    stroke: #00bfff;
+    stroke-dasharray: 251;
+    stroke-dashoffset: 251;
+    transition: stroke-dashoffset 1s ease-out;
+  }
+
+  .circle-label {
+    margin-top: 8px;
+    font-size: 16px;
+    line-height: 1.4;
+  }
+
+  .circle-label strong {
+    font-size: 20px;
+    display: block;
+    color: #003366;
+  }
 
   
 </style>
@@ -710,6 +779,37 @@ window.addEventListener("load", () => {
       .then(() => {
         const ping = Math.round(performance.now() - pingStart);
         document.getElementById("ping").textContent = ping;
+      });
+  });
+  function setCircleProgress(id, value, max) {
+    const circle = document.getElementById(id);
+    const percent = Math.min(value / max, 1);
+    const offset = 251 - (251 * percent);
+    circle.style.strokeDashoffset = offset;
+  }
+
+  window.addEventListener("load", () => {
+    // Download fake
+    const download = 7.6;
+    document.getElementById("val-download").textContent = download;
+    setCircleProgress("ring-download", download, 100);
+
+    // Battery
+    if (navigator.getBattery) {
+      navigator.getBattery().then(b => {
+        const level = Math.round(b.level * 100);
+        document.getElementById("val-battery").textContent = level;
+        setCircleProgress("ring-battery", level, 100);
+      });
+    }
+
+    // Ping
+    const pingStart = performance.now();
+    fetch("https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_92x30dp.png", { cache: "no-store" })
+      .then(() => {
+        const ping = Math.round(performance.now() - pingStart);
+        document.getElementById("val-ping").textContent = ping;
+        setCircleProgress("ring-ping", ping, 300); // max 300ms
       });
   });
 
