@@ -445,6 +445,10 @@
       </div>
     </div>
 
+
+
+    
+
     <!-- Dark Mode Toggle -->
     <div class="info-box">
       <div class="icon">🌓</div>
@@ -455,10 +459,12 @@
 
     
  <!-- Speed -->
-<div class="info-box">
-  <div class="icon">📶</div>
-  <div>
-    <p id="speed-info" style="margin: 5px 0 0;">Measuring...</p>
+    <div class="info-box speed-box">
+  <img src="https://img.icons8.com/color/48/000000/speed.png" style="width: 36px;" alt="Speed">
+  <div class="speed-info">
+    <div class="speed-row">⬇ Download: <span id="speed-download">Testing...</span></div>
+    <div class="speed-row">⬆ Upload: <span id="speed-upload">N/A</span></div>
+    <div class="speed-row">🌐 Type: <span id="speed-type">Unknown</span></div>
   </div>
 </div>
     
@@ -517,6 +523,35 @@
   body.dark .toggle-btn {
     background: #444;
   }
+
+    .speed-box {
+    flex-direction: row;
+    min-width: 320px;
+    max-width: 360px;
+  }
+
+  .speed-info {
+    margin-left: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 16px;
+  }
+
+  .speed-row {
+    background: #f4f7fa;
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-weight: 500;
+  }
+
+  body.dark .speed-row {
+    background: #333;
+    color: #fff;
+  }
+
+
+  
 </style>
 
 <!-- Script für letzte Änderung -->
@@ -553,30 +588,36 @@ window.addEventListener("load", () => {
 
 
 
-   async function measureSpeed() {
+
+
+
+  
+
+
+    window.addEventListener("load", () => {
+    // Download speed test
     const image = new Image();
-    const imageSizeInBytes = 500000; // 500 KB
+    const size = 500000; // in Bytes
     const start = new Date().getTime();
 
     image.onload = function () {
       const end = new Date().getTime();
       const duration = (end - start) / 1000;
-      const bitsLoaded = imageSizeInBytes * 8;
-      const speedBps = bitsLoaded / duration;
-      const speedMbps = (speedBps / (1024 * 1024)).toFixed(1);
+      const bits = size * 8;
+      const mbps = (bits / duration / 1024 / 1024).toFixed(1);
+      document.getElementById("speed-download").textContent = `${mbps} Mbps`;
 
-      document.getElementById("speed-info").textContent = `⬇ ${speedMbps} Mbps`;
+      // Dummy Upload & Type
+      document.getElementById("speed-upload").textContent = "n/a";
+      document.getElementById("speed-type").textContent = navigator.connection?.effectiveType || "unknown";
     };
 
-    image.onerror = function () {
-      document.getElementById("speed-info").textContent = `Speed test failed`;
+    image.onerror = () => {
+      document.getElementById("speed-download").textContent = "Failed";
     };
 
-    // Start Test
     image.src = "https://upload.wikimedia.org/wikipedia/commons/3/3f/Fronalpstock_big.jpg?rand=" + Math.random();
-  }
-
-  window.addEventListener("load", measureSpeed);
+  });
   
 </script>
   
