@@ -533,9 +533,22 @@
     const overlay = document.getElementById("loading-overlay");
     overlay.style.display = "none";
   });
+
+    const lastUpdated = new Date(document.lastModified);
+  const formattedDate = lastUpdated.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric"
+  });
+  document.getElementById("lastUpdated").textContent = formattedDate;
+
+
+  
 </script>
   
 
+
+  
   
 </body>
 </html>
